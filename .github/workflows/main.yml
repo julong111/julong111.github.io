@@ -4,6 +4,7 @@
 name: Build and deploy GH Pages
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - julong
