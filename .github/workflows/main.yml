@@ -58,9 +58,9 @@ jobs:
           CNAME: ${{ secrets.GH_PAGES_CNAME }}
 
       - name: Install Zola
-        uses: taiki-e/setup-zola@v2
+        uses: taiki-e/install-action@v2
         with:
-          version: latest
+          tool: zola
 
       - name: Build site
         run: zola build
