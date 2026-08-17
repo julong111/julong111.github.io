@@ -540,7 +540,7 @@ gongwangan = true
 copyright = true
 # 反馈
 feedback = true
-feedback_url = "mailto:mail@example.com"
+feedback_url = "mailto:julong@111.com"
 
 # 云服务商 upyun_cloud aliyun_cloud tencent_cloud huawei_cloud custom_cloud
 yunzhichi_list = ""
@@ -568,7 +568,7 @@ icon = "icon-envelope"
 # 名称
 name = "Mail"
 # 链接
-url = "mailto:mail@example.com"
+url = "mailto:julong@111.com"
 
 # 右侧社交媒体
 [[extra.footer.social_media.right]]
@@ -775,8 +775,8 @@ class =  "game-lol"
 url = ""
 
 [[extra.about.hobbies]]
-tips = "音乐玩家"
-title = "作词、作曲、编曲，吉他，钢琴"
+tips = "程序员"
+title = "喜好代码"
 uid = ""
 # bg_url = "/image/logo.png"
 # 类型(类名) game-lol / game-wolf / comic-content
@@ -786,21 +786,21 @@ url = ""
 # Like Settings
 [extra.about.like]
 tips = "兴趣偏好"
-title = "数码、科技、管理、人文、心理"
+title = "数码、科技"
 bottom = "感受世界的广度，探索世界的深度"
 # bg = ""
 
 # Music Settings
 [extra.about.music]
 tips = "音乐偏好"
-title = "流行、古典、爵士、Hiphop、EDM、民谣"
+title = "流行、古典、Hiphop、摇滚"
 link = ""
 # bg = ""
 
 # 地图相关配置
 [extra.about.map]
 # 居住地
-StrengthenTitle = "山东·济南"
+StrengthenTitle = "陕西·西安"
 # 地图亮色模式背景
 background = "/img/me/map.avif"
 # 地图暗色模式背景
@@ -811,7 +811,7 @@ backgroundDark = "/img/me/map.avif"
 # 标题
 authorInfoTitle = "生于"
 # 内容
-authorInfoContent = "1996"
+authorInfoContent = "1988"
 # 颜色
 authorInfoColor = "#43a6c6"
 
@@ -820,7 +820,7 @@ authorInfoColor = "#43a6c6"
 # 标题
 authorInfoTitle = "职业"
 # 内容
-authorInfoContent = "工程师"
+authorInfoContent = "程序员"
 # 颜色
 authorInfoColor = "#c69043"
 
