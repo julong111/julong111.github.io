@@ -18,7 +18,7 @@ jobs:
         env:
           CNAME: ${{ secrets.GH_PAGES_CNAME }}
       - name: build_and_deploy
-        uses: shalzz/zola-deploy-action@v0.20.0
+        uses: shalzz/zola-deploy-action@v0.21.0
         env:
           # Target branch
           PAGES_BRANCH: gh-pages
