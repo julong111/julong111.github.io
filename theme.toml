@@ -19,7 +19,7 @@ repo = "https://github.com/chengzhongxue/halo-theme-hao"
 # 站点设置
 [extra.site]
 # SEO 设置
-seo = "一个博客网站，基于 https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang 主题构建"
+seo = "julong的博客"
 # 网站logo
 logo = "/img/logo.webp"
 # 网站favicon 尺寸比logo更小
@@ -35,9 +35,9 @@ compliance_icp = "ICP"
 # 文章默认封面
 default_cover = "/img/default-cover.webp"
 # 网站联系邮箱
-email = "mail@example.com"
+email = "julong@111.com"
 # 建站时间，用于底部显示年份
-start_year = "2024"
+start_year = "2026"
 
 [extra.site.author]
 # 作者头像
@@ -45,7 +45,7 @@ avatar = "/img/logo.webp"
 # 关于页面的横版图片
 about_image = "/img/logo.webp"
 # MBTI 性格
-mbti = 'enfp'
+mbti = 'NONE'
 
 # 是否启用页面统计
 [extra.site.analytics]
@@ -56,7 +56,7 @@ stat_api = "https://stat-api-url"
 [extra.site.analytics.umami]
 enable = false
 # 监控的域名，避免被 localhost 统计 可选
-domain = "your.domain.com"
+domain = "julong111.github.io"
 # umami 服务地址
 remote_url = "https:/stat-api-ur"
 # 网站id 改成你的
