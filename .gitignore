@@ -1,5 +1,6 @@
 public
 
 /static/processed_images/*
+/static/production
 
 .DS_Store
