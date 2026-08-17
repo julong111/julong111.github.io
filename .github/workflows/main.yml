@@ -44,8 +44,10 @@ jobs:
           done < <(find static/css -name '*.css' -type f -print0)
 
       - name: create CNAME dynamically
-        if: ${{ secrets.GH_PAGES_CNAME != '' }}
-        run: echo ${CNAME} > static/CNAME
+        run: |
+          if [ -n "${CNAME}" ]; then
+            echo ${CNAME} > static/CNAME
+          fi
         env:
           CNAME: ${{ secrets.GH_PAGES_CNAME }}
 
