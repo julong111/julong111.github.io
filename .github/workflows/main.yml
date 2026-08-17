@@ -1,6 +1,6 @@
 # On every push to the julong branch this script is executed
 # julong only keeps source files; compilation & minification all happen here,
-# the result is deployed to GitHub Pages via the official Pages actions.
+# the result is published to the gh-pages branch.
 name: Build and deploy GH Pages
 
 on:
@@ -14,9 +14,7 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 jobs:
   build:
@@ -57,26 +55,12 @@ jobs:
         env:
           CNAME: ${{ secrets.GH_PAGES_CNAME }}
 
-      - name: Install Zola
-        uses: taiki-e/install-action@v2
-        with:
-          tool: zola
-
-      - name: Build site
-        run: zola build
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: public
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: build_and_deploy
+        uses: shalzz/zola-deploy-action@v0.21.0
+        env:
+          # Target branch
+          PAGES_BRANCH: gh-pages
+          # Provide personal access token
+          #TOKEN: ${{ secrets.TOKEN }}
+          # Or if publishing to the same repo, use the automatic token
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
