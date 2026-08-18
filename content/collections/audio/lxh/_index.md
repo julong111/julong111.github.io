@@ -7,7 +7,8 @@ weight = 1
 
 # 勿动
 template = "page/collection-detail.html"
-page_template = "page/collection-content.html"
+page_template = "page/audio-reverse.html" 
+# page_template = "page/collection-content.html"
 render = true
 
 [extra]
