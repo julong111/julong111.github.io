@@ -110,19 +110,15 @@ page.description | default(value= page.title ~ " | " ~ config.description), type
         </div>
 
         <!-- 音频倒放播放器区域 -->
-        {% set target_audio = page.extra.audio_url | default(value="http://127.0.0.1:1111/01.normal_宇宙开发局.m4a") %}
+        {% set target_audio = page.extra.audio_url | default(value="") %}
         <div class="app">
-            <div class="row">
-                <input id="url" type="url" src="{{ target_audio }}" autocomplete="off">
-                <button id="load">Load</button>
-            </div>
-
             <div class="panel">
                 <div id="info">未加载文件</div>
                 <div class="progress">
                     <div id="progressBar"></div>
                 </div>
                 <div class="controls">
+                    <button id="load">Load</button>
                     <button id="play" disabled>Play</button>
                     <button id="pause" disabled>Pause</button>
                     <button id="stop" disabled>Stop</button>
@@ -945,7 +941,7 @@ page.description | default(value= page.title ~ " | " ~ config.description), type
      * ============================================================ */
     const logger = new Logger(document.getElementById("status"));
     const ui = {
-        url: document.getElementById("url"),
+        url:  "{{ target_audio | safe }}",
         load: document.getElementById("load"),
         play: document.getElementById("play"),
         pause: document.getElementById("pause"),
@@ -958,7 +954,7 @@ page.description | default(value= page.title ~ " | " ~ config.description), type
     const player = new PipelineReversePlayer(logger, ui);
 
     ui.load.addEventListener("click", async () => {
-        const url = ui.url.value.trim();
+        const url = "{{ target_audio | safe }}";
         if (!url) return alert("请输入 M4A URL");
         ui.load.disabled = true;
         try {
