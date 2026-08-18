@@ -12,7 +12,7 @@ render = true
 
 [extra]
 tags = ["文档", "开发者", "主题"]
-cover = "/collections/docs/developer/cover.webp"
+cover = "/collections/book/developer/cover.webp"
 +++
 
 开发者文档说明...

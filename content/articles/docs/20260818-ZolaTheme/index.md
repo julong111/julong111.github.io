@@ -1,12 +1,12 @@
 +++
-title = "zola-theme-jiaxiang.wang 主题介绍"
-date = 2024-12-17
+title = "zola主题介绍"
+date = 2028-08-18
 slug = "readme"
-description = "介绍开源 Zola 博客主题 zola-theme-jiaxiang.wang"
+description = "介绍 Zola 博客主题"
 
 [taxonomies]
-tags = ["blog", "docs", "featured", "hot"]
-categories = ["theme"]
+tags = ["zola", "theme", "featured"]
+categories = ["docs"]
 
 [extra]
 update_tip_enable = true

@@ -1,6 +1,6 @@
 +++
-title = "文档"
-description = "本主题的官方文档"
+title = "音频资源"
+description = "好听的节目"
 
 # 越低排序越高
 weight = 0

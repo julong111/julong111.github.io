@@ -54,7 +54,7 @@
                         </div>
                     {% endif %}
                 </div>
-                <div class="author-title">{{ config.author }}</div>
+                <div class="author-title">{{ config.extra.site.author.nickname }}</div>
                 {{ macro_template::about(widgets=config.extra.about.widget_list) }}
                 <div class="author-content" id="about-content">
                     <div class="create-site-post author-content-item single">{{ doc.content | safe }}</div>

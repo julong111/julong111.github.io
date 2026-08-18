@@ -1,7 +1,7 @@
-title = "zola-theme-jiaxiang.wang"
+title = "主页"
 # The default author for pages
-author = "zola-theme-jiaxiang.wang"
-description = "为创造者而生的开源 Zola 主题，地址 https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang"
+author = "julong"
+description = "julong的主页"
 
 # The URL the site will be built for
 # start with "https://"
@@ -227,7 +227,8 @@ start_year = "2026"
 
 [extra.site.author]
 # 作者头像
-avatar = "/img/logo.webp"
+avatar = "/img/avatar.jpg"
+nickname = "屏前隐士"
 # 关于页面的横版图片
 about_image = "/img/logo.webp"
 # MBTI 性格
@@ -287,7 +288,7 @@ phone_menu = true
 # 开往按钮
 travelling = false
 # 右上角随机文章按钮
-article = true
+article = false
 # 右上角切换主题模式按钮
 dark_mode = true
 # 右上角控制台按钮
@@ -349,9 +350,9 @@ video = ""
 # Banner 左侧
 [extra.top.banner_left]
 # 大标题 支持HTML语法
-title_big = "<div class=\"banners-title-big\">jiaxiang.wang</div><div class=\"banners-title-big\"><a target=\"_blank]\" href=\"https://blog.jiaxiang.wang\">点击预览主题</a></div>"
+title_big = "<div class=\"banners-title-big\">欢迎访问</div><div class=\"banners-title-big\">巨龙的博客</div>"
 # 小标题 支持HTML语法
-title_small = "<br><a target=\"_blank]\" href=\"https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang\">点击访问开源代码仓库</a>"
+title_small = "<br><a target=\"_blank]\" href=\"https://github.com/julong111/julong111.github.io\">点击访问开源代码仓库</a>"
 
 # 分组
 [[extra.top.banner_left.category_groups]]
@@ -361,7 +362,7 @@ url = "/tags/featured"
 colors = { light_one = "#358bff", light_two = "#15c6ff", dark_one = "#0653b8", dark_two = "#2fcbff" }
 
 [[extra.top.banner_left.category_groups]]
-title = "热门"
+title = "共享"
 icon = "icon-fire"
 url = "/tags/hot"
 colors = { light_one = "#ff6655", light_two = "#ffbf37", dark_one = "#e22a16", dark_two = "#da980c" }
@@ -488,7 +489,7 @@ background_img = "/img/sidebar/profile.webp"
 profile_desc = "为创造者而生的开源 Zola 主题~"
 # 社交媒体
 socialMedia = [
-    { icon = "icon-github", name = "GitHub", url = "https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang" },
+    { icon = "icon-github", name = "GitHub", url = "https://github.com/julong111" },
 ]
 
 # 公众号
@@ -549,9 +550,13 @@ yunzhichi_url = ""
 # 自定义云支持跳转地址
 yunzhichi_url_link = ""
 
+# 页脚栏
+[extra.footer.footer_menu]
+enable = false
+
 [extra.footer.footer_bar]
 # 是否显示
-enable = true
+enable = false
 
 # 社交媒体
 [extra.footer.social_media]
@@ -575,12 +580,12 @@ url = "mailto:julong@111.com"
 option_social_data = "icon"
 icon = "icon-github"
 name = "Github"
-url = "https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang"
+url = "https://github.com/julong111"
 
 # 页脚友链
 [extra.footer.footer_group]
 # 是否显示
-enable = true
+enable = false
 # 友链数
 num = 3
 
@@ -592,8 +597,8 @@ dynamicBackground = true
 opacity = true
 # 阅读建议 两篇 two 或六篇 six
 recommendQuantity = "two"
-# 版权样式 默认或样式一 default one
-copyrightsStyle = "one"
+# 版权样式 默认或样式一 repost（转载） original（原创）
+copyrightsStyle = "original"
 # 最后更新时间
 update_time = true
 
@@ -635,11 +640,11 @@ post_edit_url = "/rss"
 # 分享按钮
 [extra.post.share_right]
 # 启用分享手机访问二维码
-mobile_edit = true
+mobile_edit = false
 # 启用分享到微博
 weibo_edit = false
 # 启用复制链接
-copyurl_edit = true
+copyurl_edit = false
 
 # 版权声明
 [extra.post.copyrights]
@@ -701,18 +706,20 @@ widget_list = [
 
 # 头像左侧个人标签 (也会出现在首页个人简介中)
 author_info_left_tags = [
-    "🤖️ 数码科技爱好者", 
-    "🔯 全栈架构都在行",
-    "🏠 智能家居小能手",
-    "🤝 科研科普两不误",
+    "🎓 亮亮铁柱编外弟子",
+    "✅ 大姨三舅联合认证",
+    "🎖️ 将军做梦都想捂",
+    "📡 叶文洁疯狂加好友",
+    "🛰️ ETO西安办事处联络员",
 ]
 
 # 头像右侧个人标签 (也会出现在首页个人简介中)
 author_info_right_tags = [
-    "🎵 业余原创音乐人", 
-    "🏃 文艺青年细节控",
-    "🔍 探索世界涉猎广",
-    "🤛 热爱分享交朋友",
+    "💻 数码科技爱好者",
+    "🚀 一龙马铁粉",
+    "🗄️ 人形资料库",
+    "🎭 谜语人小能手",
+    "🌏 半岛动态业余观察员",
 ]
 
 # 我的介绍 支持 HTML 语法
@@ -982,7 +989,7 @@ font_family = "PingFang SC"
 # 繁简转换
 [extra.style.translate]
 # 启用繁简转换
-enable = true
+enable = false
 # 默认编码 2: 简体中文, 1: 繁体中文 
 default_encoding = 2
 
@@ -1082,7 +1089,7 @@ loading_img = "/img/lazyload.svg"
 # 启用
 enable = true
 # 加载图片
-img = "/img/logo.webp"
+img = "/img/loading.webp"
 # 加载进度条
 progress_bar = true
 

@@ -12,7 +12,7 @@
         <div class="footer-bar-description">{{ config.description | safe }}</div>
         <a class="footer-bar-link" href="/about" >了解更多</a>
     </div>
-    {% endif %}
+
 
     <!-- 社交链接，需要填入 href class title -->
     <div id="footer_deal">
@@ -44,8 +44,10 @@
             </a>
         {% endfor %}
     </div>
+    {% endif %}
 
     <!-- 相关地址  -->
+    {% if config.extra.footer.footer_menu.enable %}
     {% if data.menu.footer_menu %}
         <div id="wjx-footer">
             {% for menu in data.menu.footer_menu %}
@@ -78,6 +80,7 @@
             </div>
             {% endif %}
         </div>
+    {% endif %}
     {% endif %}
 
     <!-- 底部 banner -->
@@ -122,18 +125,18 @@
                            {{ config.extra.site.compliance_icp }}
                         </a>
                         {% endif %}
-                        <a class="footer-bar-link" href="https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang">
+                        <a class="footer-bar-link" href="https://github.com/julong111/julong111.github.io">
                             <div class="status-light"></div>
-                            <span>本站及主题基于 Zola 构建</span>
+                            <span>本站基于 Zola 构建</span>
                         </a>
                     </div>
                 </div>
             </div>
             <div class="footer-bar-right">
-                <a class="footer-bar-link" href="/subscribe" target="_blank">订阅</a>
+                <!-- <a class="footer-bar-link" href="/subscribe" target="_blank">订阅</a> -->
 
                 {% if config.extra.footer.theme %}
-                <a class="footer-bar-link" target="_blank" href="https://github.com/iWangJiaxiang/zola-theme-jiaxiang.wang">主题</a>
+                <a class="footer-bar-link" target="_blank" href="https://github.com/julong111">GitHub Repo</a>
                 {% endif %}
 
                 {% if config.extra.footer.about %}
@@ -141,7 +144,7 @@
                 {% endif %}
 
                 {% if config.extra.footer.feedback %}
-                <a class="footer-bar-link" href="{{ config.extra.footer.feedback_url }}" target="_blank">反馈</a>
+                <a class="footer-bar-link" href="{{ config.extra.footer.feedback_url }}" target="_blank">EMail</a>
                 {% endif %}
 
                 {% if config.extra.footer.copyright %}

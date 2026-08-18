@@ -38,7 +38,7 @@
             animation-direction: alternate;
         }
 
-        #loading-box .loading-image-dot {
+        /* #loading-box .loading-image-dot {
             width: 30px;
             height: 30px;
             background: #6bdf8f;
@@ -52,7 +52,7 @@
             -o-transform: translate(18px, 24px);
             -ms-transform: translate(18px, 24px);
             transform: translate(18px, 24px);
-        }
+        } */
 
         @keyframes loadingAction {
             from {
@@ -96,7 +96,7 @@
                     src="{{ macro::thumbnail_s(url=src, format="webp") | trim | safe }}">
                 </noscript>
             </picture>
-            <div class="loading-image-dot"></div>
+            <!-- <div class="loading-image-dot"></div> -->
         </div>
     </div>
     <script>

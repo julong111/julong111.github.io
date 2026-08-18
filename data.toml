@@ -15,7 +15,7 @@ recommend_posts = [
 [post.today_recommend]
 ## 1， 推荐特定文章
 # 文章地址
-post_path = "articles/docs/20260818-ReadMe/index.md"
+post_path = "articles/docs/20260818-ZolaTheme/index.md"
 
 ## 2. 跳转指定页面
 # 跳转地址
@@ -63,11 +63,11 @@ name = '博客'
 [[post.categories]]
 id = 'theme'
 index = 1
-name = '主题'
+name = '文章'
 [[post.categories]]
 id = 'misc'
 index = 2
-name = '杂谈'
+name = '资源'
 
 [[post.taxonomies]]
 id = 'categories'
@@ -83,14 +83,14 @@ name = '标签'
 nav_menu = [
     { name = "文章", menus = [
         { name = "全部文章", href = "/archives", icon = "icon-book-open", target = "_self" },
-        { name = "分类列表", href = "/categories", icon = "icon-folder-open", target = "_self" },
+        #{ name = "分类列表", href = "/categories", icon = "icon-folder-open", target = "_self" },
         { name = "标签列表", href = "/tags", icon = "icon-tags", target = "_self" },
         #{ name = "随机文章", href = "javascript:toRandomPost()", icon = "icon-artstation", target = "_self" },
     ] },
     { name = "资源库", menus = [
-        { name = "进入资源库", href = "/collections", icon = "icon-book", target = "_self" },
-        { name = "文档", href = "/collections/docs", icon = "icon-book", target = "_self" },
-        { name = "示例", href = "/collections/sample", icon = "icon-book", target = "_self" },
+        { name = "首页", href = "/collections", icon = "icon-book", target = "_self" },
+        { name = "音频", href = "/collections/audio", icon = "icon-book", target = "_self" },
+        { name = "电子书", href = "/collections/book", icon = "icon-book", target = "_self" },
     ] },
     #{ name = "推荐", is_vertical = true, href = "/tags/work", menus = [
     #    { name = "博客主题介绍", href = "/articles/docs/readme", icon = "icon-music", target = "_self" },
@@ -112,10 +112,10 @@ nav_menu = [
 # 导航栏最左侧折叠菜单，只支持两级菜单
 # 优先使用icon image
 nav_left_menu = [
-    { name = "作品", menus = [
-        { name = "Lorem Ipsum", href = "/articles/misc/lorem-ipsum", icon = "icon-music", target = "_self" },
-        { name = "Lorem Ipsum", href = "/articles/misc/lorem-ipsum", icon = "icon-music", target = "_self" },
-    ] },
+#    { name = "作品", menus = [
+#        { name = "Lorem Ipsum", href = "/articles/misc/lorem-ipsum", icon = "icon-music", target = "_self" },
+#        { name = "Lorem Ipsum", href = "/articles/misc/lorem-ipsum", icon = "icon-music", target = "_self" },
+#    ] },
 ]
 
 # 底部菜单

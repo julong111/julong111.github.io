@@ -1,15 +1,15 @@
 <!-- 版权样式一 -->
-{% if config.extra.post.copyrightsStyle == 'one' %}
+{% if config.extra.post.copyrightsStyle == 'original' %}
     {% set doc = page | default(value=section) -%} {% set lang = doc.lang -%} 
     <!-- 版权声明 -->
     <div class="post-copyright">
-        <div class="post-copyright__author_group">
+        <!-- <div class="post-copyright__author_group">
             <a class="post-copyright__author_img" href="/about">
                 {{ macro::img_progressive_loading_single_size(src=config.extra.site.logo, class="post-copyright__author_img_back") }}
             </a>
             <div class="post-copyright__author_name">{{ config.title }}</div>
             <div class="post-copyright__author_desc">{{ config.description }}</div>
-        </div>
+        </div> -->
         <div class="post-tools" id="post-tools">
             <div class="post-tools-left">
                 <div class="rewardLeftButton">
@@ -43,11 +43,11 @@
                             </div>
                         </div>
                     {% endif %}
-                    <div class="reward-link mode">
+                    <!-- <div class="reward-link mode">
                         <a class="reward-link-button" href="/subscribe">
                             <i class="icon-plant-fill"></i>订阅
                         </a>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="shareRight">
                     {% if config.extra.post.share_right.mobile_edit %}
@@ -83,7 +83,7 @@
                 </div>
             </div>
         </div>
-        {% if doc.extra.reprint_url %}
+        {% if doc.extra.repost_url %}
             {% set is_original = false %}
         {% else %}
             {% set is_original = true %}

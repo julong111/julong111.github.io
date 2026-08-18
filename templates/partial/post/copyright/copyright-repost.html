@@ -1,5 +1,5 @@
 <!-- 版权样式默认 -->
-{% if config.extra.post.copyrightsStyle == 'default' %}
+{% if config.extra.post.copyrightsStyle == 'repost' %}
     {% set doc = page | default(value=section) -%} {% set lang = doc.lang -%} 
     <div class="post-tools" id="post-tools">
         <div class="post-tools-left">
@@ -93,7 +93,7 @@
     <!-- 版权声明 -->
     <div class="post-copyright">
         <div class="post-copyright__author">
-            {% if doc.extra.reprint_url %}
+            {% if doc.extra.repost_url %}
                 {% set is_original = false %}
             {% else %}
                 {% set is_original = true %}
@@ -104,7 +104,7 @@
                 <a class="post-copyright__original" href="{{ copyrightUrl }}" title="该文章为原创文章，注意版权协议">原创</a>
             {% endif %}
             {% if not is_original and copyright_enable %}
-                <a class="post-copyright__original" href="{{ doc.extra.reprint_url }}" title="该文章为转载文章，版权归原作者所有">转载</a>
+                <a class="post-copyright__original" href="{{ doc.extra.repost_url }}" title="该文章为转载文章，版权归原作者所有">转载</a>
             {% endif %}
             <a class="post-copyright-title" href="#"><span>{{ doc.title }}</span></a>
         </div>

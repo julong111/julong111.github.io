@@ -1,6 +1,6 @@
 +++
-title = "合集1"
-description = "合集1的描述"
+title = "用户文档"
+description = "本主题的用户文档"
 
 # 越低排序越高
 weight = 0
@@ -12,7 +12,7 @@ render = true
 
 [extra]
 tags = ["文档", "用户", "主题"]
-cover = "/collections/sample/collection 1/cover.webp"
+cover = "/collections/book/user/cover.webp"
 +++
 
-开发者文档说明...
+用户文档说明...

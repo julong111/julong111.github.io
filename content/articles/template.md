@@ -23,7 +23,7 @@ wechat_url = "https://mp.weixin.qq.com/s/xxx"
 # 是否在正文提示文章更新时间过久，内容可能过时
 update_tip_enable = true
 # 转载链接
-reprint_url = ""
+repost_url = ""
 # 版权协议链接 默认 /copyright
 copyright_url = ""
 +++

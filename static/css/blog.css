@@ -15096,7 +15096,7 @@ div#wjx-footer-bar .footer-bar-description {
 #about-page .author-img:hover {
     transform: scale(1.1)
 }
-
+/* 
 #about-page .author-img::before {
     content: '';
     -webkit-transition: 1s;
@@ -15113,7 +15113,7 @@ div#wjx-footer-bar .footer-bar-description {
     bottom: 5px;
     right: 10px;
     z-index: 2;
-}
+} */
 
 @media screen and (max-width: 768px) {
     #about-page .author-img {
@@ -15126,10 +15126,10 @@ div#wjx-footer-bar .footer-bar-description {
         height: 120px
     }
 
-    #about-page .author-img::before {
+    /* #about-page .author-img::before {
         bottom: -5px;
         right: -5px;
-    }
+    } */
 }
 
 #about-page .author-title {

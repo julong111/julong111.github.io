@@ -1,6 +1,6 @@
 +++
-title = "合集分类"
-description = "探索合集的起点"
+title = "资源库"
+description = "探索资源库的起点"
 
 render = true
 template="page/collection-category.html"
