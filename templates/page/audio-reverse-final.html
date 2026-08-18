@@ -26,8 +26,7 @@ page.description | default(value= page.title ~ " | " ~ config.description), type
           "description": "{{ page.description | default(value=page.title) }}"
         }
     </script>
-<!-- 引入 Tone.js 倒放依赖 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+
 {% endblock %}
 
 {% block content %}
