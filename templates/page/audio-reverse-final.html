@@ -110,26 +110,37 @@ page.description | default(value= page.title ~ " | " ~ config.description), type
 
         <!-- 音频倒放播放器区域 -->
         {% set target_audio = page.extra.audio_url | default(value="") %}
-        <div class="app">
-            <div class="panel">
-                <div id="info">未加载文件</div>
-                <div class="progress">
-                    <div id="progressBar"></div>
+        {% set page_password = page.extra.password | default(value="") %}
+        <div class="audio-reverse-player">
+            <div class="app">
+                <div class="panel" id="playerPanel" {% if page_password %}style="display: none;"{% endif %}>
+                    <div id="info">未加载文件</div>
+                    <div class="progress">
+                        <div id="progressBar"></div>
+                    </div>
+                    <div class="controls">
+                        <button id="play" {% if not target_audio %}disabled{% endif %}>Play</button>
+                        <button id="pause" disabled>Pause</button>
+                        <button id="stop" disabled>Stop</button>
+                        <span id="time" class="time">00:00 / 00:00</span>
+                    </div>
                 </div>
-                <div class="controls">
-                    <button id="load">Load</button>
-                    <button id="play" disabled>Play</button>
-                    <button id="pause" disabled>Pause</button>
-                    <button id="stop" disabled>Stop</button>
-                    <span id="time" class="time">00:00 / 00:00</span>
+
+                <div class="panel" id="logPanel" {% if page_password %}style="display: none;"{% endif %}>
+                    <div id="status" class="status"></div>
                 </div>
-            </div>
 
-            <div class="panel">
-                <div id="status" class="status"></div>
+                {% if page_password %}
+                <div class="panel" id="passwordOverlay">
+                    <div class="password-form">
+                        <h3>需要密码访问</h3>
+                        <input type="password" id="passwordInput" placeholder="请输入密码" autocomplete="off">
+                        <button id="passwordSubmit">确定</button>
+                        <div id="passwordError" class="password-error"></div>
+                    </div>
+                </div>
+                {% endif %}
             </div>
-
-            <div class="small">要求服务器支持 HTTP Range，并允许浏览器跨域访问。</div>
         </div>
 
 
@@ -156,113 +167,180 @@ page.description | default(value= page.title ~ " | " ~ config.description), type
 {% include "partial/common/footer.html" %}
 
 <style>
-    * {
-        box-sizing: border-box;
-    }
-
-    body {
-        margin: 0;
-        background: #111;
-        color: #eee;
-        font-family: system-ui, -apple-system, sans-serif;
-    }
-
-    .app {
+    .audio-reverse-player .app {
         width: min(900px, calc(100% - 32px));
-        margin: 40px auto;
+        margin: 40px auto 0;
     }
 
-    h1 {
-        font-size: 24px;
-        margin: 0 0 24px;
-    }
-
-    .row {
-        display: flex;
-        gap: 10px;
-        margin-bottom: 12px;
-    }
-
-    input {
-        flex: 1;
-        min-width: 0;
-        background: #1c1c1c;
-        border: 1px solid #444;
-        border-radius: 6px;
-        color: #fff;
-        padding: 12px;
-        font-size: 14px;
-        outline: none;
-    }
-
-    button {
-        border: 0;
-        border-radius: 6px;
-        padding: 11px 18px;
-        background: #eee;
-        color: #111;
-        cursor: pointer;
-        font-weight: 600;
-    }
-
-    button:disabled {
-        opacity: .4;
-        cursor: default;
-    }
-
-    .panel {
-        background: #181818;
-        border: 1px solid #2d2d2d;
+    .audio-reverse-player .panel {
+        background: var(--wjx-card-bg);
+        border: var(--style-border-always);
         border-radius: 8px;
         padding: 16px;
         margin-top: 14px;
     }
 
-    .status {
-        white-space: pre-wrap;
-        word-break: break-word;
-        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-        font-size: 12px;
-        line-height: 1.6;
-        color: #bbb;
-        min-height: 180px;
-        max-height: 400px;
-        overflow: auto;
+    .audio-reverse-player #info {
+        color: var(--wjx-secondtext);
+        font-size: 14px;
+        margin-bottom: 8px;
     }
 
-    .progress {
+    .audio-reverse-player .progress {
         height: 6px;
-        background: #292929;
+        background: var(--wjx-secondbg);
         border-radius: 99px;
         overflow: hidden;
         margin-top: 12px;
     }
 
-    .progress>div {
+    .audio-reverse-player .progress > div {
         width: 0;
         height: 100%;
-        background: #eee;
+        background: var(--wjx-main);
         transition: width .1s linear;
     }
 
-    .controls {
+    .audio-reverse-player .controls {
         display: flex;
         align-items: center;
         gap: 10px;
         margin-top: 14px;
+        flex-wrap: wrap;
     }
 
-    .time {
+    .audio-reverse-player .controls button {
+        border: 0;
+        border-radius: 6px;
+        padding: 10px 16px;
+        background: var(--wjx-main);
+        color: var(--wjx-background);
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 13px;
+        transition: opacity .2s, transform .1s;
+    }
+
+    .audio-reverse-player .controls button:hover:not(:disabled) {
+        opacity: .9;
+        transform: translateY(-1px);
+    }
+
+    .audio-reverse-player .controls button:active:not(:disabled) {
+        transform: translateY(0);
+    }
+
+    .audio-reverse-player .controls button:disabled {
+        opacity: .4;
+        cursor: not-allowed;
+    }
+
+    .audio-reverse-player .time {
         font-variant-numeric: tabular-nums;
         font-size: 13px;
-        color: #aaa;
+        color: var(--wjx-secondtext);
         min-width: 100px;
     }
 
-    .small {
+    .audio-reverse-player .status {
+        white-space: pre-wrap;
+        word-break: break-word;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
         font-size: 12px;
-        color: #888;
+        line-height: 1.6;
+        color: var(--wjx-secondtext);
+        min-height: 180px;
+        max-height: 400px;
+        overflow: auto;
+        background: var(--wjx-secondbg);
+        border-radius: 6px;
+        padding: 12px;
+        border: var(--style-border);
+    }
+
+    .audio-reverse-player .small {
+        font-size: 12px;
+        color: var(--wjx-lighttext);
         margin-top: 10px;
+    }
+
+    .audio-reverse-player .password-form {
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    .audio-reverse-player .password-form h3 {
+        margin: 0 0 16px;
+        font-size: 16px;
+        color: var(--wjx-fontcolor);
+    }
+
+    .audio-reverse-player .password-form input {
+        width: 100%;
+        max-width: 300px;
+        background: var(--wjx-card-bg);
+        border: var(--style-border);
+        border-radius: 6px;
+        color: var(--wjx-fontcolor);
+        padding: 12px 16px;
+        font-size: 14px;
+        outline: none;
+        margin-bottom: 12px;
+        text-align: center;
+        transition: border-color .2s;
+    }
+
+    .audio-reverse-player .password-form input:focus {
+        border-color: var(--wjx-main);
+    }
+
+    .audio-reverse-player .password-form button {
+        width: 100%;
+        max-width: 300px;
+        padding: 12px;
+        font-size: 14px;
+        border: 0;
+        border-radius: 6px;
+        background: var(--wjx-main);
+        color: var(--wjx-background);
+        cursor: pointer;
+        font-weight: 600;
+        transition: opacity .2s, transform .1s;
+    }
+
+    .audio-reverse-player .password-form button:hover:not(:disabled) {
+        opacity: .9;
+        transform: translateY(-1px);
+    }
+
+    .audio-reverse-player .password-form button:active:not(:disabled) {
+        transform: translateY(0);
+    }
+
+    .audio-reverse-player .password-form button:disabled {
+        opacity: .4;
+        cursor: not-allowed;
+    }
+
+    .audio-reverse-player .password-error {
+        margin-top: 12px;
+        color: var(--wjx-red);
+        font-size: 13px;
+        min-height: 18px;
+    }
+
+    @media screen and (max-width: 768px) {
+        .audio-reverse-player .controls {
+            gap: 8px;
+        }
+        .audio-reverse-player .controls button {
+            padding: 8px 12px;
+            font-size: 12px;
+        }
+        .audio-reverse-player .time {
+            min-width: auto;
+            font-size: 12px;
+        }
     }
 </style>
 
@@ -300,12 +378,13 @@ page.description | default(value= page.title ~ " | " ~ config.description), type
     }
 
     /* ============================================================
-     * HTTP Range Reader
+     * HTTP Range Reader (with parallel HEAD + adaptive metadata fetch)
      * ============================================================ */
     class HttpRangeReader {
         constructor(url) {
             this.url = url;
             this.size = null;
+            this._headPromise = null;
         }
 
         async requestRange(start, end) {
@@ -317,6 +396,51 @@ page.description | default(value= page.title ~ " | " ~ config.description), type
                 throw new Error(`HTTP ${response.status} ${response.statusText}`);
             }
             return new Uint8Array(await response.arrayBuffer());
+        }
+
+        // 并行 HEAD + 乐观预取，自适应退避
+        async fetchMetadata(initialChunk = 128 * 1024, maxChunk = 1024 * 1024) {
+            // 1. 启动 HEAD 请求（不阻塞）
+            this._headPromise = fetch(this.url, { method: 'HEAD', cache: 'no-store' })
+                .then(r => parseInt(r.headers.get('Content-Length') || '0', 10))
+                .catch(() => 0);
+
+            // 2. 乐观预取初始 chunk
+            let chunk = await this.requestRange(0, initialChunk - 1);
+            if (this._hasMoovAndSidx(chunk)) {
+                this.size = await this._headPromise;
+                return chunk;
+            }
+
+            // 3. 等待 HEAD 结果，按总大小动态估算下一步
+            this.size = await this._headPromise;
+            let nextChunk = initialChunk;
+            
+            // 自适应：总大小越大，moov 可能越靠后
+            // 经验：moov 约占总大小 0.1%-0.5%，上限 1MB
+            const estimated = this.size > 0 
+                ? Math.min(maxChunk, Math.max(initialChunk * 2, this.size * 0.005))
+                : initialChunk * 2;
+
+            for (let attempt = 0; attempt < 5; attempt++) {
+                nextChunk = Math.min(estimated * Math.pow(2, attempt), maxChunk);
+                const more = await this.requestRange(chunk.byteLength, chunk.byteLength + nextChunk - 1);
+                chunk = this._concatUint8(chunk, more);
+                if (this._hasMoovAndSidx(chunk)) break;
+            }
+            return chunk;
+        }
+
+        _hasMoovAndSidx(bytes) {
+            const boxes = BoxReader.parseBoxes(bytes);
+            return boxes.some(b => b.type === "moov") && boxes.some(b => b.type === "sidx");
+        }
+
+        _concatUint8(a, b) {
+            const c = new Uint8Array(a.length + b.length);
+            c.set(a, 0);
+            c.set(b, a.length);
+            return c;
         }
     }
 
@@ -783,16 +907,10 @@ page.description | default(value= page.title ~ " | " ~ config.description), type
             this.ui.info.textContent = "正在加载...";
 
             this.reader = new HttpRangeReader(url);
-            let metadataBytes = null;
-            let chunkSize = 256 * 1024;
-
-            for (let attempt = 0; attempt < 6; attempt++) {
-                metadataBytes = await this.reader.requestRange(0, chunkSize - 1);
-                const boxes = BoxReader.parseBoxes(metadataBytes);
-                if (boxes.some(b => b.type === "moov") && boxes.some(b => b.type === "sidx")) break;
-                chunkSize *= 2;
-            }
-
+            
+            // 并行 HEAD + 自适应元数据获取
+            const metadataBytes = await this.reader.fetchMetadata();
+            
             this.metadata = new Mp4Metadata();
             this.metadata.parseMoov(metadataBytes);
 
@@ -831,6 +949,7 @@ page.description | default(value= page.title ~ " | " ~ config.description), type
             this.playing = true;
 
             this.ui.play.disabled = true;
+            this.ui.play.textContent = "Playing...";
             this.ui.pause.disabled = false;
             this.logger.log("PLAY (流水线启动)");
 
@@ -843,6 +962,7 @@ page.description | default(value= page.title ~ " | " ~ config.description), type
             this.playing = false;
             if (this.timerId) clearInterval(this.timerId);
             this.ui.play.disabled = false;
+            this.ui.play.textContent = "Resume";
             this.ui.pause.disabled = true;
             this.logger.log("PAUSE");
         }
@@ -856,7 +976,8 @@ page.description | default(value= page.title ~ " | " ~ config.description), type
             this.decoder = null;
 
             this.resetCursor();
-            this.ui.play.disabled = true;
+            this.ui.play.disabled = false;
+            this.ui.play.textContent = "Play";
             this.ui.pause.disabled = true;
             this.ui.stop.disabled = true;
             this.ui.info.textContent = "未加载文件";
@@ -939,9 +1060,45 @@ page.description | default(value= page.title ~ " | " ~ config.description), type
      * UI Bindings
      * ============================================================ */
     const logger = new Logger(document.getElementById("status"));
+
+    // 密码验证逻辑
+    const pagePassword = "{{ page_password | safe }}";
+    const playerPanel = document.getElementById("playerPanel");
+    const logPanel = document.getElementById("logPanel");
+    const passwordOverlay = document.getElementById("passwordOverlay");
+    const passwordInput = document.getElementById("passwordInput");
+    const passwordSubmit = document.getElementById("passwordSubmit");
+    const passwordError = document.getElementById("passwordError");
+
+    if (pagePassword && passwordOverlay) {
+        // 初始隐藏播放器和日志
+        if (playerPanel) playerPanel.style.display = "none";
+        if (logPanel) logPanel.style.display = "none";
+        passwordOverlay.style.display = "block";
+
+        function verifyPassword() {
+            const input = passwordInput.value.trim();
+            if (input === pagePassword) {
+                passwordOverlay.style.display = "none";
+                if (playerPanel) playerPanel.style.display = "block";
+                if (logPanel) logPanel.style.display = "block";
+                passwordError.textContent = "";
+            } else {
+                passwordError.textContent = "密码不正确，请联系管理员";
+                passwordInput.value = "";
+                passwordInput.focus();
+            }
+        }
+
+        passwordSubmit.addEventListener("click", verifyPassword);
+        passwordInput.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") verifyPassword();
+        });
+        passwordInput.focus();
+    }
+
     const ui = {
         url:  "{{ target_audio | safe }}",
-        load: document.getElementById("load"),
         play: document.getElementById("play"),
         pause: document.getElementById("pause"),
         stop: document.getElementById("stop"),
@@ -952,23 +1109,29 @@ page.description | default(value= page.title ~ " | " ~ config.description), type
 
     const player = new PipelineReversePlayer(logger, ui);
 
-    ui.load.addEventListener("click", async () => {
+    async function loadAndPlay() {
         const url = "{{ target_audio | safe }}";
         if (!url) return alert("请输入 M4A URL");
-        ui.load.disabled = true;
-        try {
-            await player.load(url);
-        } catch (error) {
-            logger.log("LOAD ERROR:", error.stack || error.message || String(error));
-            ui.info.textContent = "加载失败";
-        } finally {
-            ui.load.disabled = false;
+        
+        if (!player.renderer) {
+            ui.play.disabled = true;
+            ui.play.textContent = "Loading...";
+            try {
+                await player.load(url);
+            } catch (error) {
+                logger.log("LOAD ERROR:", error.stack || error.message || String(error));
+                ui.info.textContent = "加载失败";
+                ui.play.disabled = false;
+                ui.play.textContent = "Play";
+                return;
+            }
         }
-    });
+        ui.play.textContent = "Playing...";
+        player.play();
+    }
 
-    ui.play.addEventListener("click", () => player.play());
+    ui.play.addEventListener("click", loadAndPlay);
     ui.pause.addEventListener("click", () => player.pause());
     ui.stop.addEventListener("click", () => player.stop());
-    ui.url.addEventListener("keydown", e => { if (e.key === "Enter") ui.load.click(); });
 </script>
 {% endblock %}

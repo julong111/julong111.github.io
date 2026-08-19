@@ -13,7 +13,7 @@ render = true
 
 [extra]
 tags = ["亮亮", "迈巴赫进行曲"]
-cover = "https://i0.hdslb.com/bfs/face/d62f384b1af609f62542ac062bffc782b506c96d.jpg@128w_128h_1c_1s.webp"
+cover = "https://img0.baidu.com/it/u=697805683,3667284145&fm=253&fmt=auto&app=120&f=JPEG?w=667&h=500"
 +++
 
 亮亮 -《迈巴赫进行曲》
