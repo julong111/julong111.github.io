@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>主页 - featured</title>
+      <link>/</link>
+      <description>julong的主页</description>
+      <generator uri="https://www.getzola.org/">Zola</generator>
+      <language>en</language>
+      <atom:link href="/tags/featured/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Fri, 18 Aug 2028 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>zola主题介绍</title>
+          <pubDate>Fri, 18 Aug 2028 00:00:00 +0000</pubDate>
+          <author>julong</author>
+          <link>/articles/docs/readme/</link>
+          <guid>/articles/docs/readme/</guid>
+          <description xml:base="/articles/docs/readme/">介绍 Zola 博客主题</description>
+      </item>
+      <item>
+          <title>Lorem Ipsum 3</title>
+          <pubDate>Tue, 17 Dec 2024 00:00:00 +0000</pubDate>
+          <author>julong</author>
+          <link>/articles/misc/lorem-ipsum-3/</link>
+          <guid>/articles/misc/lorem-ipsum-3/</guid>
+          <description xml:base="/articles/misc/lorem-ipsum-3/">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</description>
+      </item>
+      <item>
+          <title>Lorem Ipsum 4</title>
+          <pubDate>Tue, 17 Dec 2024 00:00:00 +0000</pubDate>
+          <author>julong</author>
+          <link>/articles/misc/lorem-ipsum-4/</link>
+          <guid>/articles/misc/lorem-ipsum-4/</guid>
+          <description xml:base="/articles/misc/lorem-ipsum-4/">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</description>
+      </item>
+      <item>
+          <title>Lorem Ipsum 5</title>
+          <pubDate>Tue, 17 Dec 2024 00:00:00 +0000</pubDate>
+          <author>julong</author>
+          <link>/articles/misc/lorem-ipsum-5/</link>
+          <guid>/articles/misc/lorem-ipsum-5/</guid>
+          <description xml:base="/articles/misc/lorem-ipsum-5/">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</description>
+      </item>
+      <item>
+          <title>Lorem Ipsum 2</title>
+          <pubDate>Mon, 16 Dec 2024 00:00:00 +0000</pubDate>
+          <author>julong</author>
+          <link>/articles/misc/lorem-ipsum-2/</link>
+          <guid>/articles/misc/lorem-ipsum-2/</guid>
+          <description xml:base="/articles/misc/lorem-ipsum-2/">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</description>
+      </item>
+      <item>
+          <title>Lorem Ipsum</title>
+          <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
+          <author>julong</author>
+          <link>/articles/misc/lorem-ipsum/</link>
+          <guid>/articles/misc/lorem-ipsum/</guid>
+          <description xml:base="/articles/misc/lorem-ipsum/">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</description>
+      </item>
+    </channel>
+</rss>

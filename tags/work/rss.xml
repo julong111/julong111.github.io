@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>主页 - work</title>
+      <link>/</link>
+      <description>julong的主页</description>
+      <generator uri="https://www.getzola.org/">Zola</generator>
+      <language>en</language>
+      <atom:link href="/tags/work/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Tue, 17 Dec 2024 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Lorem Ipsum 5</title>
+          <pubDate>Tue, 17 Dec 2024 00:00:00 +0000</pubDate>
+          <author>julong</author>
+          <link>/articles/misc/lorem-ipsum-5/</link>
+          <guid>/articles/misc/lorem-ipsum-5/</guid>
+          <description xml:base="/articles/misc/lorem-ipsum-5/">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</description>
+      </item>
+    </channel>
+</rss>
