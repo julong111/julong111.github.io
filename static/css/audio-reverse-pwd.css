@@ -1,0 +1,65 @@
+/* Audio Reverse Player - Password Form Styles */
+.audio-reverse-player .password-form {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.audio-reverse-player .password-form h3 {
+    margin: 0 0 16px;
+    font-size: 16px;
+    color: var(--wjx-fontcolor);
+}
+
+.audio-reverse-player .password-form input {
+    width: 100%;
+    max-width: 300px;
+    background: var(--wjx-card-bg);
+    border: var(--style-border);
+    border-radius: 6px;
+    color: var(--wjx-fontcolor);
+    padding: 12px 16px;
+    font-size: 14px;
+    outline: none;
+    margin-bottom: 12px;
+    text-align: center;
+    transition: border-color .2s;
+}
+
+.audio-reverse-player .password-form input:focus {
+    border-color: var(--wjx-main);
+}
+
+.audio-reverse-player .password-form button {
+    width: 100%;
+    max-width: 300px;
+    padding: 12px;
+    font-size: 14px;
+    border: 0;
+    border-radius: 6px;
+    background: var(--wjx-main);
+    color: var(--wjx-background);
+    cursor: pointer;
+    font-weight: 600;
+    transition: opacity .2s, transform .1s;
+}
+
+.audio-reverse-player .password-form button:hover:not(:disabled) {
+    opacity: .9;
+    transform: translateY(-1px);
+}
+
+.audio-reverse-player .password-form button:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.audio-reverse-player .password-form button:disabled {
+    opacity: .4;
+    cursor: not-allowed;
+}
+
+.audio-reverse-player .password-error {
+    margin-top: 12px;
+    color: var(--wjx-red);
+    font-size: 13px;
+    min-height: 18px;
+}
